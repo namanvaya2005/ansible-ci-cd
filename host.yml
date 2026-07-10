@@ -1,0 +1,11 @@
+---
+ - name: writing a PLAYBOOK TO ADD A HOST
+   hosts: all
+   tasks:
+
+     - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+       ansible.builtin.user:
+          name: ip_from_ec2
+     - name: Add host to group 'just_created' with variable foo=42
+       ansible.builtin.add_host:
+          name: '{{ ip_from_ec2 }}'

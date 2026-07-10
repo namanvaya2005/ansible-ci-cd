@@ -1,0 +1,21 @@
+---
+ - name: service install
+   hosts: all
+   become: yes
+   tasks:
+      - name: Install the latest version of Apache
+        ansible.builtin.dnf:
+           name: httpd
+           state: latest
+
+      - name: Start service httpd, if not started
+        ansible.builtin.service:
+           name: httpd
+           state: started
+           enabled: yes
+
+     
+      - name: Permanently enable https service, also enable it immediately if possible
+        ansible.posix.firewalld:
+           service: http
+           state: enabled

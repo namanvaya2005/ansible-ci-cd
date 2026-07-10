@@ -1,0 +1,18 @@
+---
+ - name: creating user and permitions
+   hosts: all
+   tasks: 
+    - name: Ensure group "somegroup" exists
+      ansible.builtin.group:
+         name: naman
+         state: present
+
+    - name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+      ansible.builtin.user:
+         name: newbie
+         comment: John Doe
+         uid: 4000
+         state: present
+         group: naman
+
+

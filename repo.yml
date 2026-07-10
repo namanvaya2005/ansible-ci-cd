@@ -1,0 +1,21 @@
+---
+ - name: creating repositories
+   hosts: all
+   tasks:
+
+      
+     - name: Add multiple repositories into the same file (1/2)
+       ansible.builtin.yum_repository:
+         name: epel
+         description: EPEL YUM repo
+         file: appstream
+         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+         enabled: yes
+         
+     - name: Add multiple repositories into the same file (1/2)
+       ansible.builtin.yum_repository:
+         name: baseos
+         description: EPEL YUM repo
+         file: baseos
+         baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+         enabled: yes

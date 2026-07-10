@@ -1,0 +1,11 @@
+[dev]
+servera ansible_host=3.27.148.93
+[test]
+serverb	ansible_host=3.25.139.14
+[prod]
+serverc ansible_host=13.239.35.171
+serverd	ansible_host=52.65.219.140
+[balancers]
+servere ansible_host=52.62.48.83
+[webservers:children]
+prod
